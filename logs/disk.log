@@ -1,0 +1,8 @@
+[2026-05-25 10:43:52] Partition: shm | Usage: 0% - OK
+[2026-05-25 10:43:52] Partition: /dev/nvme1n1 | Usage: 37% - OK
+[2026-05-25 10:43:52] Partition: /dev/loop0 | Usage: 1% - OK
+[2026-05-25 10:43:52] Partition: /dev/nvme0n1p1 | Usage: 17% - OK
+[2026-05-25 10:46:14] Partition: shm | Usage: 0% - OK
+[2026-05-25 10:46:14] Partition: /dev/nvme1n1 | Usage: 37% - OK
+[2026-05-25 10:46:14] Partition: /dev/loop0 | Usage: 1% - OK
+[2026-05-25 10:46:14] Partition: /dev/nvme0n1p1 | Usage: 17% - OK
