@@ -2,65 +2,60 @@
 
 ## Why I Built This
 
-I built this project because I wanted to understand how Linux monitoring 
-actually works. In DevOps there are many monitoring tools like Prometheus, 
-Grafana, and Datadog but I wanted to first understand the basics. 
-This project gave me the big picture of where simple Bash scripting has 
-limits and why those tools were built in the first place.
+I built this project to understand how Linux monitoring works under the hood. While modern DevOps teams rely on tools like Prometheus, Grafana, and Datadog, I wanted to first learn the fundamentals using Bash scripting and native Linux utilities.
+
+Building this project helped me understand key monitoring concepts, automate system health checks, generate reports, and identify the limitations of custom scripts. It also gave me a deeper appreciation for why dedicated monitoring and observability platforms exist and when they become necessary at scale.
+
 
 ## My Journey
 
-Starting this project was the hardest part. I had no local Linux setup 
-and didn't know how to connect AWS with this idea. I faced SSH connection 
-failures due to port 22 being blocked on my mobile hotspot, launched EC2 
-in the wrong region Stockholm instead of Mumbai, and had to learn 
-SSM Session Manager from scratch just to connect to my own server.
+Starting this project was the hardest part. I had no local Linux setup and wasn't sure how to connect AWS services to the idea. Along the way, I faced SSH connection failures because port 22 was blocked on my mobile hotspot, accidentally launched an EC2 instance in the Stockholm region instead of Mumbai, and had to learn AWS Systems Manager (SSM Session Manager) from scratch just to connect to my own server.
 
-Three things genuinely surprised me during this build:
+A few things genuinely surprised me during this build:
 
-1. rsync only copies changed files not everything. This saved significant 
-time and storage on backups.
+* **rsync only copies changed files**, not everything. This makes backups much faster and more storage-efficient.
+* **SSM Session Manager can connect to EC2 without a PEM key or open ports**, using only an IAM role. It felt much cleaner and more secure than traditional SSH access.
+* **CloudShell files are not permanent.** This encouraged me to integrate Amazon S3 properly instead of treating backups as optional.
 
-2. SSM Session Manager connected to EC2 without any PEM key or open ports
-just IAM role. Much cleaner than SSH.
+More than the technical implementation, this project taught me how to troubleshoot real-world infrastructure issues, work through AWS configuration mistakes, and build reliable automation step by step.
 
-3. CloudShell files can be lost. This pushed me to integrate S3 properly 
-instead of treating it as optional.
 
 ## What This Project Does
 
-- Monitors CPU, Memory, Disk and Network every 5 minutes via cron
-- Color coded alerts green/yellow/red based on configurable thresholds
-- Automated log rotation with gzip compression
-- Full backup every Sunday, incremental backup Monday to Saturday
-- All backups uploaded to AWS S3 automatically
-- Generates HTML, CSV and Text reports
-- Interactive terminal dashboard with auto refresh
-- Deployed on AWS EC2 via SSM Session Manager
+* Monitors CPU, Memory, Disk, and Network usage every 5 minutes using Cron
+* Displays color-coded alerts (Green, Yellow, Red) based on configurable thresholds
+* Automates log rotation with Gzip compression
+* Performs full backups every Sunday and incremental backups from Monday to Saturday
+* Uploads backups automatically to Amazon S3
+* Generates HTML, CSV, and Text reports
+* Provides an interactive terminal dashboard with auto-refresh
+* Runs on AWS EC2 and is managed through AWS Systems Manager (SSM Session Manager)
+
 
 ## Screenshots
 
-### System Monitor Output
-![Monitor](screenshots/monitor.png)
 
-### Terminal Dashboard
-![Dashboard](screenshots/dashboard.png)
+### Dashboard
+<img src="screenshots/dashboard.png" width="600">
+
+### Monitoring
+<img src="screenshots/monitor.png" width="600">
 
 ### Log Rotation
-![Log Rotation](screenshots/logrotation.png)
+<img src="screenshots/logrotation.png" width="600">
 
 ### HTML Report
-![HTML Report](screenshots/report_html.png)
+<img src="screenshots/report_html.png" width="600">
 
-### S3 Backup Bucket
-![S3 Bucket](screenshots/s3bucket.png)
+### S3 Backup
+<img src="screenshots/s3bucket.png" width="600">
 
 ## Tech Stack
 
-Bash | Linux | Cron | rsync | Git | AWS EC2 | AWS S3 | SSM Session Manager
+Bash Scripting • Linux • Cron Jobs • rsync • Git & GitHub • AWS EC2 • Amazon S3 • AWS Systems Manager (SSM Session Manager) • HTML Reporting
 
 ## Project Structure
-
+```
 scripts/
     monitor.sh
     cpu_monitor.sh
@@ -81,26 +76,27 @@ logs/
 reports/
 backups/
 screenshots/
+```
 
 ## Setup
-
+```
 git clone https://github.com/mdshadab41/system-monitor.git
 cd system-monitor
 chmod +x scripts/*.sh
 nano config/config.cfg
 bash scripts/monitor.sh
-
+```
 ## Cron Schedule
-
+```
 */5 * * * *  monitor.sh            Every 5 minutes
 0 * * * *    report_html.sh        Every hour
 0 0 * * *    log_rotate.sh         Daily midnight
 0 2 * * 0    backup_full.sh        Sunday 2am
 0 2 * * 1-6  backup_incremental.sh Mon-Sat 2am
 0 3 * * *    backup_s3.sh          Daily 3am
+```
+## Connect With Me
 
-## Author
+* 🌐 GitHub: https://github.com/mdshadab41
+* 💼 LinkedIn: https://www.linkedin.com/in/md-shadab-a52981130
 
-Shadab Rayeen
-GitHub: https://github.com/mdshadab41
-LinkedIn: www.linkedin.com/in/md-shadab-a52981130
