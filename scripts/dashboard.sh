@@ -1,6 +1,6 @@
 #!/bin/bash
 while true; do
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load config
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 
 # Timestamp
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
@@ -37,4 +37,4 @@ fi
 echo -e "${COLOR}[$TIMESTAMP] Memory Usage: ${MEMORY_USAGE}% (Used: ${USED}MB / Total: ${TOTAL}MB) - ${STATUS}${NC}"
 
 # Log to file
-echo "[$TIMESTAMP] Memory Usage: ${MEMORY_USAGE}% (Used: ${USED}MB / Total: ${TOTAL}MB) - ${STATUS}" >> /home/cloudshell-user/system-monitor/logs/memory.log
+echo "[$TIMESTAMP] Memory Usage: ${MEMORY_USAGE}% (Used: ${USED}MB / Total: ${TOTAL}MB) - ${STATUS}" >> /home/ssm-user/system-monitor/logs/memory.log

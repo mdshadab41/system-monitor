@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load config
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 
 # Timestamp
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
@@ -39,6 +39,6 @@ df -h | grep -vE '^Filesystem|tmpfs|cdrom|overlay|devtmpfs' | while read line; d
     echo -e "${COLOR}Partition: $PARTITION | Size: $SIZE | Used: $USED | Available: $AVAILABLE | Usage: $USAGE% - $STATUS${NC}"
 
     # Log to file
-    echo "[$TIMESTAMP] Partition: $PARTITION | Usage: $USAGE% - $STATUS" >> /home/cloudshell-user/system-monitor/logs/disk.log
+    echo "[$TIMESTAMP] Partition: $PARTITION | Usage: $USAGE% - $STATUS" >> /home/ssm-user/system-monitor/logs/disk.log
 done
 echo "----------------------------------------"

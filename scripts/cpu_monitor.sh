@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load config
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 
 # Timestamp
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
@@ -34,4 +34,4 @@ fi
 echo -e "${COLOR}[$TIMESTAMP] CPU Usage: ${CPU_USAGE}% - ${STATUS}${NC}"
 
 # Log to file
-echo "[$TIMESTAMP] CPU Usage: ${CPU_USAGE}% - ${STATUS}" >> /home/cloudshell-user/system-monitor/logs/cpu.log
+echo "[$TIMESTAMP] CPU Usage: ${CPU_USAGE}% - ${STATUS}" >> /home/ssm-user/system-monitor/logs/cpu.log

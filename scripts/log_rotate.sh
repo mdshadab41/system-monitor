@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load config
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 
 # Timestamp
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')

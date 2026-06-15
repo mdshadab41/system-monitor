@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load config
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 
 # Timestamp (no spaces - underscore format)
 TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
@@ -28,7 +28,7 @@ fi
 rsync -av \
     --exclude='.git' \
     --exclude='backups' \
-    /home/cloudshell-user/system-monitor/ \
+    /home/ssm-user/system-monitor/ \
     "$BACKUP_DEST"
 
 # Success message
