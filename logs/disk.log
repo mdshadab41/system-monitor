@@ -6,3 +6,9 @@
 [2026-05-25 10:46:14] Partition: /dev/nvme1n1 | Usage: 37% - OK
 [2026-05-25 10:46:14] Partition: /dev/loop0 | Usage: 1% - OK
 [2026-05-25 10:46:14] Partition: /dev/nvme0n1p1 | Usage: 17% - OK
+[2026-06-15 07:29:08] Partition: /dev/nvme0n1p1 | Usage: 22% - OK
+[2026-06-15 07:29:08] Partition: /dev/nvme0n1p128 | Usage: 13% - OK
+[2026-06-15 07:30:02] Partition: /dev/nvme0n1p1 | Usage: 22% - OK
+[2026-06-15 07:30:02] Partition: /dev/nvme0n1p128 | Usage: 13% - OK
+[2026-06-15 07:35:01] Partition: /dev/nvme0n1p1 | Usage: 22% - OK
+[2026-06-15 07:35:01] Partition: /dev/nvme0n1p128 | Usage: 13% - OK

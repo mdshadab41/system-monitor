@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/cloudshell-user/system-monitor/config/config.cfg
+source /home/ssm-user/system-monitor/config/config.cfg
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 HOST=$(cat /etc/hostname)
 CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
